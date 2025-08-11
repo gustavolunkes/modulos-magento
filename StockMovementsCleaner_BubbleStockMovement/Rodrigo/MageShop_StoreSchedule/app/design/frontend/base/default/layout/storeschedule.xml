@@ -1,0 +1,7 @@
+<layout version="0.1.0">
+  <default>
+    <reference name="head">
+      <block type="core/template" name="storeschedule.storecheck" template="storeschedule/js/store-check.phtml" />
+    </reference>
+  </default>
+</layout>

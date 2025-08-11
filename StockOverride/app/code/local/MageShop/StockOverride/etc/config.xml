@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MageShop_StockOverride>
+            <version>0.1.0</version>
+        </MageShop_StockOverride>
+    </modules>
+
+    <global>
+        <models>
+            <cataloginventory>
+                <rewrite>
+                    <stock_item>MageShop_StockOverride_Model_Stock_Item</stock_item>
+                </rewrite>
+            </cataloginventory>
+        </models>
+    </global>
+</config>

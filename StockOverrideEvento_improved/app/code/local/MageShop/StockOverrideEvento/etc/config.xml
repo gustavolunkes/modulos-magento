@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MageShop_StockOverrideEvento>
+            <version>0.1.0</version>
+        </MageShop_StockOverrideEvento>
+    </modules>
+
+    <global>
+        <models>
+            <stockoverrideevento>
+                <class>MageShop_StockOverrideEvento_Model</class>
+            </stockoverrideevento>
+        </models>
+
+        <events>
+
+            <!-- Dispara ao salvar produto individual -->
+            <catalog_product_save_after>
+                <observers>
+                    <stockoverrideevento_product_save>
+                        <type>singleton</type>
+                        <class>stockoverrideevento/stock_observer</class>
+                        <method>autoSetInStock</method>
+                    </stockoverrideevento_product_save>
+                </observers>
+            </catalog_product_save_after>
+
+            <!-- Dispara ao salvar o stock item individual -->
+            <cataloginventory_stock_item_save_commit_after>
+                <observers>
+                    <stockoverrideevento_stock_save>
+                        <type>singleton</type>
+                        <class>stockoverrideevento/stock_observer</class>
+                        <method>autoSetInStock</method>
+                    </stockoverrideevento_stock_save>
+                </observers>
+            </cataloginventory_stock_item_save_commit_after>
+
+            <!-- Dispara ao fazer atualização em massa de atributos -->
+            <catalog_product_attribute_update_after>
+                <observers>
+                    <stockoverrideevento_attribute_update>
+                        <type>singleton</type>
+                        <class>stockoverrideevento/stock_observer</class>
+                        <method>autoSetInStockMassUpdate</method>
+                    </stockoverrideevento_attribute_update>
+                </observers>
+            </catalog_product_attribute_update_after>
+
+        </events>
+    </global>
+
+    <default>
+        <cataloginventory>
+            <item_options>
+                <auto_instock_threshold>10</auto_instock_threshold>
+            </item_options>
+        </cataloginventory>
+    </default>
+</config>

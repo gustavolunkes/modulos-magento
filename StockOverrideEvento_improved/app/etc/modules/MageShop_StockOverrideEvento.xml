@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MageShop_StockOverrideEvento>
+            <active>true</active>
+            <codePool>local</codePool>
+        </MageShop_StockOverrideEvento>
+    </modules>
+</config>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MageShop_StockMovementsCleaner>
+            <version>0.1.0</version>
+        </MageShop_StockMovementsCleaner>
+    </modules>
+
+    <global>
+        <models>
+            <stockmovementscleaner>
+                <class>MageShop_StockMovementsCleaner_Model</class>
+            </stockmovementscleaner>
+        </models>
+        <helpers>
+            <stockmovementscleaner>
+                <class>MageShop_StockMovementsCleaner_Helper</class>
+            </stockmovementscleaner>
+        </helpers>
+    </global>
+
+    <default>
+        <cataloginventory>
+            <item_options>
+                <stockcleaner_enabled>1</stockcleaner_enabled>
+                <stockcleaner_days>30</stockcleaner_days>
+            </item_options>
+        </cataloginventory>
+    </default>
+
+    <crontab>
+        <jobs>
+            <stockmovementscleaner_clean>
+                <schedule><cron_expr>0 0 * * *</cron_expr></schedule>
+                <run><model>stockmovementscleaner/cron::cleanOldRecords</model></run>
+            </stockmovementscleaner_clean>
+        </jobs>
+    </crontab>
+</config>

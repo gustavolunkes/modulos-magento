@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MageShop_StockMovementsCleaner>
+            <active>true</active>
+            <codePool>local</codePool>
+        </MageShop_StockMovementsCleaner>
+    </modules>
+</config>

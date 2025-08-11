@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MageShop_UrlRedirect>
+            <active>true</active>
+            <codePool>local</codePool>
+        </MageShop_UrlRedirect>
+    </modules>
+</config>

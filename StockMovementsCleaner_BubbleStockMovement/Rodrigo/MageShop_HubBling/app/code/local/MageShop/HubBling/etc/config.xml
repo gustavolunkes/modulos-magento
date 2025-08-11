@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<MageShop_HubBling>
+			<version>0.1.0</version>
+		</MageShop_HubBling>
+	</modules>
+	<global>
+		<helpers>
+			<hubbling>
+				<class>MageShop_HubBling_Helper</class>
+			</hubbling>
+		</helpers>
+		<blocks>
+			<hubbling>
+				<class>MageShop_HubBling_Block</class>
+			</hubbling>
+		</blocks>
+		<models>
+			<hubbling>
+				<class>MageShop_HubBling_Model</class>
+				<resourceModel>hubbling_resource</resourceModel>
+			</hubbling>
+			<hubbling_resource>
+				<class>MageShop_HubBling_Model_Resource</class>
+				<entities>
+					<syncProduct>
+						<table>hubbling_sync_products</table>
+					</syncProduct>
+				</entities>
+			</hubbling_resource>
+		</models>
+		<resources>
+			<hubbling_resource_setup>
+				<setup>
+					<module>MageShop_HubBling</module>
+				</setup>
+				<connection>
+					<use>directory_setup</use>
+				</connection>
+			</hubbling_resource_setup>
+		</resources>
+	</global>
+
+	<frontend>
+		<routers>
+			<hubbling>
+				<use>standard</use>
+				<args>
+					<module>MageShop_HubBling</module>
+					<frontName>hubbling</frontName>
+				</args>
+			</hubbling>
+		</routers>
+	</frontend>
+
+	<adminhtml>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<hubbling>
+											<title>MageShop - HUB Bling</title>
+										</hubbling>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>
+
+	<crontab>
+		<jobs>
+			<hubbling_getproductsbase>
+				<schedule>
+					<cron_expr>30 * * * *</cron_expr>
+				</schedule>
+				<run>
+					<model>hubbling/cron::getProductsBase</model>
+				</run>
+			</hubbling_getproductsbase>
+			<hubbling_getproductsapi>
+				<schedule>
+					<cron_expr>*/5 * * * *</cron_expr>
+				</schedule>
+				<run>
+					<model>hubbling/cron::getProductsApi</model>
+				</run>
+			</hubbling_getproductsapi>
+			<hubbling_getstockproducts>
+				<schedule>
+					<cron_expr>*/2 * * * *</cron_expr>
+				</schedule>
+				<run>
+					<model>hubbling/cron::getStockProducts</model>
+				</run>
+			</hubbling_getstockproducts>
+			<hubbling_updatestockproducts>
+				<schedule>
+					<cron_expr>* * * * *</cron_expr>
+				</schedule>
+				<run>
+					<model>hubbling/cron::updateStockProducts</model>
+				</run>
+			</hubbling_updatestockproducts>
+		</jobs>
+	</crontab>
+
+</config> 

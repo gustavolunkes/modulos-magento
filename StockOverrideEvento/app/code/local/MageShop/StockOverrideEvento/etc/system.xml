@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <cataloginventory>
+            <groups>
+                <item_options>
+                    <fields>
+                        <auto_instock_threshold translate="label">
+                            <label>EVENTO: Marcar como em estoque se Qtd ≥</label>
+                            <comment>Deixe sem nada para deixar desativado</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>99</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </auto_instock_threshold>
+                    </fields>
+                </item_options>
+            </groups>
+        </cataloginventory>
+    </sections>
+</config>

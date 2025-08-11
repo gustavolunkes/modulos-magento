@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <MageShop_SetMailToCancel>
+      <version>1.0.0</version>
+    </MageShop_SetMailToCancel>
+  </modules>
+
+  <global>
+    <models>
+      <mageshop_setmailtocancel>
+        <class>MageShop_SetMailToCancel_Model</class>
+      </mageshop_setmailtocancel>
+    </models>
+
+    <helpers>
+      <mageshop_setmailtocancel>
+        <class>MageShop_SetMailToCancel_Helper</class>
+      </mageshop_setmailtocancel>
+    </helpers>
+
+    <events>
+      <!-- <sales_order_save_after>
+        <observers>
+          <setmailtocancel_observer_save_after>
+            <type>singleton</type>
+            <class>setmailtocancel/observer</class>
+            <method>setMailToCancel</method>
+          </setmailtocancel_observer_save_after>
+        </observers>
+      </sales_order_save_after>
+
+      <sales_order_cancel_after>
+        <observers>
+          <setmailtocancel_observer_cancel_after>
+            <type>singleton</type>
+            <class>setmailtocancel/observer</class>
+            <method>setMailToCancel</method>
+          </setmailtocancel_observer_cancel_after>
+        </observers>
+      </sales_order_cancel_after> -->
+
+      <order_cancel_after>
+        <observers>
+          <setmailtocancel_observer_order_cancel_after>
+            <type>singleton</type>
+            <class>mageshop_setmailtocancel/observer</class>
+            <method>setMailToCancel</method>
+          </setmailtocancel_observer_order_cancel_after>
+        </observers>
+      </order_cancel_after>
+    </events>
+  </global>
+
+  <adminhtml>
+    <acl>
+      <resources>
+        <admin>
+          <children>
+            <system>
+              <children>
+                <config>
+                  <children>
+                    <sales_email>
+                      <children>
+                        <order_cancel translate="title" module="mageshop_setmailtocancel">
+                          <title>Email de Cancelamento</title>
+                        </order_cancel>
+                      </children>
+                    </sales_email>
+                  </children>
+                </config>
+              </children>
+            </system>
+          </children>
+        </admin>
+      </resources>
+    </acl>
+  </adminhtml>
+</config>

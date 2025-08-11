@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MageShop_UrlRedirect>
+            <version>1.0.0</version>
+        </MageShop_UrlRedirect>
+    </modules>
+
+    <global>
+        <models>
+            <urlredirect>
+                <class>MageShop_UrlRedirect_Model</class>
+            </urlredirect>
+        </models>
+        <helpers>
+            <urlredirect>
+                <class>MageShop_UrlRedirect_Helper</class>
+            </urlredirect>
+        </helpers>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <urlredirect_observer>
+                        <class>urlredirect/observer</class>
+                        <method>redirectIfNeeded</method>
+                    </urlredirect_observer>
+                </observers>
+            </controller_action_predispatch>
+        </events>
+    </global>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <urlredirect>
+                                            <title>URL Redirect</title>
+                                        </urlredirect>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+    <default>
+        <urlredirect>
+            <general>
+                <enabled>0</enabled>
+                <remove_path></remove_path>
+                <redirect_type>301</redirect_type>
+            </general>
+        </urlredirect>
+    </default>
+</config>
