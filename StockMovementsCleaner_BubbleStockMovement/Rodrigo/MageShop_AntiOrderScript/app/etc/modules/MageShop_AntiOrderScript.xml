@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<config>
-    <modules>
-        <MageShop_AntiOrderScript>
-            <active>true</active>
-            <codePool>local</codePool>
-        </MageShop_AntiOrderScript>
-    </modules>
-</config>
